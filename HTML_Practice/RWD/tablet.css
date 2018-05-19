@@ -1,0 +1,7 @@
+.menu{
+	float:left;
+	/* margin: 0px; */
+	width: 50%; 
+	box-sizing: border-box;
+	border: 3px green dotted;
+}

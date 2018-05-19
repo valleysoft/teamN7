@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Submit Button Disbaled till all form field are enetred</title>
+    <script type="text/javascript">
+    function isReadyForSubmit() {
+        var username = document.forms["signin"].username;
+        var password = document.forms["signin"].pwd;
+        var gender = document.forms["signin"].gender;
+        var state = document.forms["signin"].state;
+
+        var stateSelected = false;
+
+        if (state.selectedIndex > 0) {
+            stateSelected = true;
+        }
+
+        //console.log(gender);
+
+        var genederSelected = false;
+        if (gender[0].checked || gender[1].checked) {
+            genederSelected = true;
+        }
+
+        var cansubmit = false;
+
+        if ((username.value.length >= 5) && (password.value.length >= 5) && genederSelected && stateSelected) {
+            cansubmit = true;
+        }
+
+        if (cansubmit) {
+            document.getElementById('submitbutton').disabled = false;
+        } else {
+            document.getElementById('submitbutton').disabled = true;
+        }
+k
+    }
+
+    function showVerify() {
+    	//alert("hello");
+    	console.log("showVerify");
+        var signinform = document.getElementById("signinform");
+        var verify = document.getElementById("verify");
+        signinform.style.display = 'none';
+
+        verify.style.display = 'block';
+
+        var username = document.forms["signin"].username;
+        var password = document.forms["signin"].pwd;
+        var gender = document.forms["signin"].gender;
+        var state = document.forms["signin"].state;
+
+
+        document.getElementById("v_username").innerHTML = username.value;
+        document.getElementById("v_pwd").innerHTML = password.value;
+        document.getElementById("v_gender").innerHTML = gender.value;
+        document.getElementById("v_state").innerHTML = state.value;
+
+    }
+    function goBackToForm(){
+
+    	var signinform = document.getElementById("signinform");
+        var verify = document.getElementById("verify");
+        signinform.style.display = 'block';
+
+        verify.style.display = 'none';
+    }
+    </script>
+</head>
+
+<body>
+    <div id="signinform">
+        Sign In
+        <form name="signin" action="/signin">
+            Username:
+            <input type="text" name="username" onkeyup="isReadyForSubmit();" />
+            <br/> Password:
+            <input type="password" name="pwd" onkeyup="isReadyForSubmit();" />
+            <br/> Gender
+            <br/> Male:
+            <input type="radio" name="gender" value="male" onclick="isReadyForSubmit();" /> Female:
+            <input type="radio" name="gender" value="female" onclick="isReadyForSubmit();" />
+            <br/> State:
+            <select name="state" onchange="isReadyForSubmit();">
+                <option>Select a State</option>
+                <option>CA</option>
+                <option>AL</option>
+                <option>NY</option>
+            </select>
+            <input id="submitbutton" type="button" value="Submit" onclick="showVerify();" disabled/>
+        </form>
+    </div>
+    <div id="verify" style="display:none;">
+        UserName: <span id="v_username"> </span> <br/>
+        Password: <span id="v_pwd"> </span> <br/>
+        Gender: <span id="v_gender"> </span> <br/>
+        State:<span id="v_state"> </span> <br/>
+        <input type="button" value="Confirm"/> <input type="button" value="Back" onclick="goBackToForm();" />
+    </div>
+</body>
+
+</html>

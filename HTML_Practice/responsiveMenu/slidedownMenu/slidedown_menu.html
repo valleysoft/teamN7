@@ -1,0 +1,44 @@
+<html>
+<head>
+<title> ValleySoft Systems, Inc.</title>
+<link rel="stylesheet" type="text/css" href="slidedown_menu.css">
+<script src="jquery-2.2.3.js"></script>
+<script>
+$( document ).ready(function() {
+
+   //alert('Hi');
+      
+   $("a[href='#menuExpand']").click(function(e) {
+        $(".menu").toggleClass("menuOpen");
+        e.preventDefault();
+    });
+     
+ 
+});
+
+
+</script>
+</head>
+<body>
+
+
+
+<div class="header">
+  <div class="menuIcon">
+    <a href="#menuExpand">Menu</a>
+  </div>
+  <div class="menu">
+    <ul>
+      <li><a href="#">Menu Option 1</a></li>
+      <li><a href="#">Menu Option 2</a></li>
+      <li><a href="#">Menu Option 3</a></li>
+      <li><a href="#">Menu Option 4</a></li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+</body>
+</html>

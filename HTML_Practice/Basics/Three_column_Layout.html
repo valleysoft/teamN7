@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Column Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+    .column {
+        width: 25%;
+        float: left;
+    }
+    
+    @media only screen and (max-width: 400px) {
+        .column {
+            width: 100%;
+            float: left;
+        }
+    }
+    
+    @media only screen and (min-width: 401px) and (max-width: 770px) {
+        .column {
+            width: 50%;
+            float: left;
+            //overflow: auto;
+            margin: 0;
+            padding: 0;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="column">
+        <h3>Job Seekers</h3>
+        <p> We help you find best career opportunities and provide balanced life.</p>
+        <p> As a professional IT consultant with ValleySoft Systems, you will have access to best IT Jobs in the Bay Area and all over the nation.</p>
+        <br/>
+    </div>
+    <div class="column">
+        <h3>Services</h3>
+        <p> We help you find best career opportunities and provide balanced life.</p>
+        <p> As a professional IT consultant with ValleySoft Systems, you will have access to best IT Jobs in the Bay Area and all over the nation.</p>
+    </div>
+    <div class="column">
+        <h3>Clients</h3>
+        <p> We help you find best career opportunities and provide balanced life.</p>
+        <p> As a professional IT consultant with ValleySoft Systems, you will have access to best IT Jobs in the Bay Area and all over the nation.</p>
+    </div>
+    <div class="column">
+        <h3>ContactUs</h3>
+        <p> We help you find best career opportunities and provide balanced life.</p>
+        <p> As a professional IT consultant with ValleySoft Systems, you will have access to best IT Jobs in the Bay Area and all over the nation.</p>
+    </div>
+</body>
+
+</html>

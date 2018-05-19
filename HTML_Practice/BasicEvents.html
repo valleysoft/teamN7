@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Java Script Basics</title>
+</head>
+
+<body>
+    <h1> Evenets </h1>
+    <div id="parent" name="parent">
+        <button id="save" name="save"> Save
+        </button>
+    </div>
+    <script>
+    var divTag = window.document.getElementById("parent");
+    divTag.addEventListener("click", divBubble, false);
+    divTag.addEventListener("click", divCapture, true);
+    var buttonTag = window.document.getElementById("save");
+    buttonTag.addEventListener("click", buttonTarget, false);
+    buttonTag.addEventListener("click", buttonTarget, true);
+
+    function divCapture(event) {
+
+        alert("Im Div Capture Phase");
+    }
+
+    function divBubble(event) {
+
+        alert("Im Div Bubble Phase");
+    }
+
+    function buttonTarget(event) {
+
+        alert("Im Button Target");
+    }
+
+    
+    </script>
+</body>
+
+</html>

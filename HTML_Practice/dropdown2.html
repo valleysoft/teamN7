@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Drop Down Menu with Pure CSS</title>
+    <style>
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        background: #1bc2a2;
+    }
+    
+    ul.main-navigation > li {
+        display: inline;
+        //position: relative;
+        //float: left;
+        background: #1bc2a2;
+    }
+
+    ul ul li {
+        display: block;
+        //position: relative;
+        //float: left;
+        background: #1bc2a2;
+    }
+    
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Drop Down Menu with Pure CSS</h1>
+    </div>
+    <div id="menu">
+        <ul class="main-navigation">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Front End Design</a>
+                <ul>
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">JavaScript</a> </li>
+                </ul>
+            </li>
+            <li><a href="#">WordPress Development</a>
+                <ul>
+                    <li><a href="#">Themes</a></li>
+                    <li><a href="#">Plugins</a></li>
+                    <li><a href="#">Custom Post Types</a>
+                    </li>
+                    <li><a href="#">Options</a></li>
+                </ul>
+            </li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

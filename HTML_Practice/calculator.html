@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculator</title>
+    <script type="text/javascript">
+    function add() {
+        alert("Add");
+        var number1 = document.getElementById("number1").value;
+
+        var number2 = document.getElementById("number2").value;
+        var result = Number(number1) + Number(number2);
+
+        document.getElementById("result").innerHTML = result;
+
+        return false;
+
+    }
+
+    function calculator(event) {
+        //alert("Add");
+        var number1 = document.forms[0].number1.value;//document.getElementById("number1").value;
+        
+        var number2 = document.forms[0].number2.value;//document.getElementById("number2").value;
+        
+        var result = 0;
+
+        if (event.name == "add") {
+
+            result = Number(number1) + Number(number2);
+        } else if (event.name == "subtract") {
+
+            result = Number(number1) - Number(number2);
+        } else if (event.name == "multiply") {
+
+            result = Number(number1) * Number(number2);
+        } else if (event.name == "divide") {
+
+            result = Number(number1) / Number(number2);
+        }
+
+        document.getElementById("result").innerHTML = result;
+
+        //document.getElementById("htmlContent").innerHTML = "<h1> Hello <h1> <h2> Hi </h2>";
+
+    }
+    </script>
+</head>
+
+<body>
+    <div id="calculator">
+        <form>
+            Number1:
+            <input id="number1" name="number1"> &nbsp; Number2:
+            <input id="number2" name="number2">
+            <br/> Operators:
+            <input type="button" name="add" value="+" onclick="calculator(this);"></input> &nbsp;&nbsp;
+            <input type="button" value="-" name="subtract" onclick="calculator(this);"></input> &nbsp;&nbsp;
+            <input type="button" value="*" name="multiply" onclick="calculator(this);"></input>
+            <input type="button" value="/" name="divide" onclick="calculator(this);"></input>
+            <br/> Result:
+            <div id="result"></div>
+            <div id="htmlContent"> </div>
+        </form>
+    </div>
+</body>
+
+</html>

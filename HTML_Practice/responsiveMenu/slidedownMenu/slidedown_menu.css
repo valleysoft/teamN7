@@ -1,0 +1,65 @@
+.header .menu ul {
+  padding: 0;
+  margin: 0;
+}
+.header .menu ul li {
+  display: inline-block;
+  float: left;
+  list-style: none;
+  padding: 0 0 0 5px;
+  margin: 0;
+}
+.header .menuIcon {
+  display: none;
+  background: #000;
+  width: 100%;
+  text-align: center;
+}
+.header .menuIcon:hover {
+  background: #999;
+}
+.header .menuIcon a {
+  width: 100%;
+  display: inline-block;
+  color: #fff;
+}
+.header .menuIcon a img {
+  vertical-align: middle;
+}
+
+@media only screen and (max-width: 767px) {
+  .header .menu {
+    max-height: 0;
+    overflow: hidden;
+    float: none;
+    text-align: center;
+    width: 100%;
+    -webkit-transition: max-height 0.5s;
+    -moz-transition: max-height 0.5s;
+    transition: max-height 0.5s;
+  }
+  .header .menu.menuOpen {
+    max-height: 1000px;
+    -webkit-transition: max-height 0.5s;
+    -moz-transition: max-height 0.5s;
+    transition: max-height 0.5s;
+  }
+  .header .menu ul li {
+    display: block;
+    width: 100%;
+    background: #000;
+    border-top: 1px solid #4d4d4d;
+  }
+  .header .menu ul li:hover {
+    background: #999;
+  }
+  .header .menu ul li a {
+    color: #fff;
+    text-shadow: #848484 0px 1px 2px;
+    padding: 10px 0;
+    width: 100%;
+  }
+  .header .menuIcon {
+    display: inline-block;
+  }
+}

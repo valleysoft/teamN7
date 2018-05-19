@@ -1,0 +1,32 @@
+/*selector{
+	attribute1:value;
+	attribute2:value;
+}*/
+h1{
+	color: red;
+}
+
+body{
+	background-color: #eeeeee;
+	background-image: url('MultiCard.jpg');
+}
+
+p{
+	background-color: blue;
+}
+
+.green{
+	background-color: green;
+}
+
+p.green{
+	background-color: green;
+}
+
+div.green{
+	background-color: yellow;
+}
+
+#xyz{
+	color:#F88977;
+}

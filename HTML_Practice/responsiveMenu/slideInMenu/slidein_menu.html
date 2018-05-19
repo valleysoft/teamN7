@@ -1,0 +1,68 @@
+<html>
+<head>
+<title> ValleySoft Systems, Inc.</title>
+<link rel="stylesheet" type="text/css" href="slidein_menu.css">
+<script src="jquery-2.2.3.js"></script>
+<script>
+$( document ).ready(function() {
+
+  //alert('Hi');
+      
+  $("a[href='#menuExpand']").click(function(e) {
+	//alert('hi');
+	showHideMobile();
+	e.preventDefault();
+  });
+  
+  $(".mobileDimmer").click(function() {
+    showHideMobile();
+  });
+  
+  function showHideMobile() {
+	  //alert('hi');
+	  $(".mobileMenu").toggleClass("menuOpen");
+	  $(".mobileBodyWrapper").toggleClass("menuOpen");
+	  $(".mobileDimmer").toggle();
+  }
+     
+ 
+});
+
+
+
+</script>
+</head>
+<body>
+
+
+
+<div class="mobileMenu">
+  <ul>
+    <li><a href="#">Menu Option 1</a></li>
+    <li><a href="#">Menu Option 2</a></li>
+    <li><a href="#">Menu Option 3</a></li>
+    <li><a href="#">Menu Option 4</a></li>
+  </ul>
+</div>
+<div class="mobileBodyWrapper">
+  <div class="mobileDimmer"></div>
+  <header class="header">
+    <div class="menuIcon">
+      <a href="#menuExpand">Menu</a>
+    </div>
+    <nav class="menu">
+      <ul>
+        <li><a href="#">Menu Option 1</a></li>
+        <li><a href="#">Menu Option 2</a></li>
+        <li><a href="#">Menu Option 3</a></li>
+        <li><a href="#">Menu Option 4</a></li>
+      </ul>
+    </nav>
+  </header>
+</div>
+
+
+
+
+</body>
+</html>
