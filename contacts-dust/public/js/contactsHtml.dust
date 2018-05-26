@@ -1,0 +1,25 @@
+<div id="list">
+    <table>
+        <thead>
+            
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Work</th>
+        </thead>
+        <tbody>
+            {#contactList}
+                <tr>
+                    <td> {firstName} </td>
+                    <td> {lastName} </td>
+                    <td> {email} </td>
+                    <td> {phone} </td>
+                    <td> {work} </td>
+                    <td> <a href="#" onclick="editContact('{id}')"> Edit </a></td>
+                    <td> <a href="#" onclick="deleteContact('{id}')"> Delete </a></td>
+                </tr>
+             {/contactList}
+        </tbody>
+    </table>
+</div>

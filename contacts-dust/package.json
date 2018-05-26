@@ -1,0 +1,26 @@
+{
+  "name": "contacts-dust",
+  "version": "1.0.0",
+  "description": "my first node project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "basics"
+  ],
+  "author": "bhim",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "gulp-dust": "^3.0.0",
+    "nodemon": "^1.11.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.5",
+    "gulp": "^3.9.1"
+  }
+}

@@ -1,0 +1,115 @@
+<html>
+
+<head>
+    <title>Hotwire ReactJs</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <style>
+    .simple-border{
+        border: 1px solid blue;
+    }
+
+    .simple-border-child1{
+        border: 1px solid red;
+    }
+
+    .simple-border-child2{
+        border: 1px solid green;
+    }
+    </style>
+
+</head>
+
+<body>
+    ReactJs - Properties Usage (data and function)
+    <div id="main"> Loading... </div>
+
+    <script type="text/babel"> 
+
+    class RootComponent extends React.Component{
+        constructor(props) {
+            super(props);
+            this.state ={
+                count: 0,
+                childCount:0
+            }
+
+            this.increment = this.increment.bind(this);
+            this.incrementChild = this.incrementChild.bind(this);
+        }
+
+        increment(){
+            //wrong // this.state = {count : this.state.count+1};
+
+            this.setState({
+                count: this.state.count+1
+            })
+        }
+
+        incrementChild(){
+            //wrong // this.state = {count : this.state.count+1};
+
+            this.setState({
+                childCount: this.state.childCount+1
+            })
+        }
+
+        render(){
+            return (
+            <div className="simple-border">
+                My Counter: {this.state.count} & Child 2 Counter: {this.state.childCount}
+                <button type="button" onClick={this.increment}> Increment </button>
+
+                <ChildComponentLevel1 count={this.state.count} childCount1={this.state.childCount} buttonFun1={this.incrementChild}/>
+                <br/><br/>
+            </div>
+            );
+        }
+        
+    }
+
+    class ChildComponentLevel1 extends React.Component{
+        constructor(props) {
+            super(props);
+           
+        }
+
+        render(){
+            return (
+            <div className="simple-border-child1">
+                Parent Counter: {this.props.count} & Child 2 Counter: {this.props.childCount1}
+                <ChildComponentLevel2 count={this.props.count} childCount2={this.props.childCount1} buttonFun2={this.props.buttonFun1}/>
+                <br/><br/>               
+            </div>
+            );
+        }
+    }
+    class ChildComponentLevel2 extends React.Component{
+        constructor(props) {
+            super(props);
+           
+        }        
+
+        render(){
+            return (
+            <div className="simple-border-child2">
+                Parent Counter: {this.props.count}
+                <br/>
+                my Count : {this.props.childCount2}
+                <button type="button" onClick={this.props.buttonFun2}> Increment </button>
+                <br/><br/>               
+            </div>
+            );
+        }
+    }
+
+    ReactDOM.render(<RootComponent /> ,
+                        document.getElementById('main')
+                    );  
+
+    </script>
+</body>
+
+</html>

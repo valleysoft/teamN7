@@ -1,0 +1,7 @@
+backend services details:
+
+1. /contactList -- this service will return all the existing contacts
+2. /addContact -- POST - this service will add a new contact , and we have send the contact details from UI
+3. /deleteContact  - POST - this service will delete a contact based on given ID {"id": id}
+4. /getContact  - get the contact record complete details based on give ID
+5. /updateContact - this service will update an existing contact record based on ID - from UI we have to send the complete record

@@ -1,0 +1,132 @@
+<html>
+        
+        <head>
+            <title>Hotwire ReactJs</title>
+            <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+            <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+            <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+            <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+                crossorigin="anonymous">
+        </head>
+        
+        <body>
+            ReactJs - Hotwire Search Box
+            <div id="main"> Loading... </div>
+        
+            <script type="text/babel"> 
+            "use strict";
+            
+            class MainContainer extends React.Component{
+                constructor(props) {
+                    super(props);
+                    console.log(props);
+                    this.state = {
+                        counter: 1,
+                        childCounter:1
+                    } 
+                    
+                    this.increment = this.increment.bind(this);
+                    this.incrementForChild = this.incrementForChild.bind(this);
+                }
+
+                increment(){
+                    this.setState({
+                        counter: this.state.counter+1
+                    })
+                }
+
+                incrementForChild(){
+                    this.setState({
+                        childCounter: this.state.childCounter+1
+                    })
+                }
+
+                render(){
+                    return (
+                        <div className="container well">
+                            <p>count: {this.state.counter} </p>
+                            <button onClick={this.incrementForChild}> Child Counter </button>
+                            <LevelOneComponent counterFun={this.increment} count={this.state.childCounter}/>
+                        </div>
+                    );
+                }
+            } 
+
+            class LevelOneComponent extends React.Component{
+                constructor(props) {
+                    super(props);
+                    console.log(props);
+                    this.state = {
+                        
+                    }                   
+                }
+
+                componentWillReceiveProps(nextProps){
+                    console.log("nextprops", nextProps);
+                    console.log(this.props.count);
+                    console.log(nextProps.count);
+                }
+
+                render(){
+                    return (
+                        <div className="border-right-0">
+                        <p>I'm Level one Component</p>
+                        <LevelTwoComponent counterFun={this.props.counterFun} count={this.props.count}/>
+                        </div>
+                    );
+                }
+            }
+
+            class LevelTwoComponent extends React.Component{
+                constructor(props) {
+                    super(props);
+                    console.log(props);
+                    this.state = {
+                        
+                    }                   
+                }
+
+                render(){
+                    return (
+                        <div className="well">
+                        <p>I'm Level Two Component</p>
+                        <LevelThreeComponent counterFun={this.props.counterFun} count={this.props.count}> 
+                            
+                        </LevelThreeComponent>
+                        </div>
+                    );
+                }
+            }
+
+            class LevelThreeComponent extends React.Component{
+                constructor(props) {
+                    super(props);
+                    console.log(props);
+                    this.state = {
+                        
+                    }                   
+                }
+
+                render(){
+                    return (
+                        <div className="well">
+                            <p>I'm Level Three Component</p>
+                            <p>Main Count: {this.props.count}</p>
+                            <button onClick={this.props.counterFun}> Main Counter </button>
+                        </div>
+                    );
+                }
+            }
+
+           
+            
+            
+            ReactDOM.render(<MainContainer/> ,
+                        document.getElementById('main')
+                    );  
+                
+            </script>
+        </body>
+        
+        </html>

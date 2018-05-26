@@ -1,1 +1,16 @@
-{}
+{
+    "contactList":[
+        {
+            "id": "1",
+            "name": "Muneed"
+        },
+        {
+            "id": "2",
+            "name": "Venkat"
+        },
+        {
+            "id": "3",
+            "name": "Dheeraj"
+        }
+    ]
+}

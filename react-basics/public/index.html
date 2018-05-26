@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Basics</title>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+
+    React Basics
+    <div id="reactroot">
+        Loading..react..
+    </div>
+
+</body>
+
+<script type="text/babel">
+    // var myNameComponent = React.createElement('I', null, 'Chary 123');
+    // var myStreetComponent = React.createElement('I', null, '39123 Sundlae Dr ');
+    // var myCityComponent = React.createElement('I', null, 'Fremont');
+    // var myAddressComponent = React.createElement('I', null, myStreetComponent,myCityComponent);
+
+    // var myReactComponent = React.createElement('B', {name:'city'}, myNameComponent, myAddressComponent);
+
+    class MyProfile extends React.Component {
+        render() {
+            return React.createElement('div', { className: 'myname' }, 
+            React.createElement('b', { className: 'hello' }, 'Hello Children' ));
+        }
+    }
+    
+    class MyProfileJSX extends React.Component {
+        constructor(props) {
+            super(props);               
+        }
+
+        render() {
+            return (
+                <div>
+                    <div className="myname">                    
+                        <h1>Name: {this.props.name}  and Email: {this.props.email}</h1>
+                    </div>
+                    <div>
+                        <MyAddressJSX street={this.props.street} city={this.props.city}/>
+                    </div>
+                </div>
+               
+            )
+        }
+    }
+
+    class MyAddressJSX extends React.Component {
+        constructor(props) {
+            super(props);               
+        }
+
+        render() {
+            return (
+                <div>
+                    <div className="myname">                    
+                        <h1>Street: {this.props.street}  and City: {this.props.city}</h1>
+                    </div>
+                    <div>
+                        Test
+                    </div>
+                </div>
+            )
+        }
+    }
+
+
+    //var myProfileComponent = React.createElement(MyProfile, null, null);
+    //ReactDOM.render(myProfileComponent, document.getElementById('reactroot'));
+
+    ReactDOM.render(<MyProfileJSX  name="Venkat" email="v@gmail.com" street="500 Market St" city="SFO" />, document.getElementById('reactroot'));
+
+    //document.getElementById("reactroot").innerHTML = "<b name='city'>Hello React </b>";
+
+</script>
+
+</html>
