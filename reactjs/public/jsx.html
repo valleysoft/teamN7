@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>ReactJs</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+   
+
+</head>
+
+<body>
+    ReactJs
+    <div id="main"> Loading... </div>
+
+    <script type="text/babel">        
+           //React.createElement('h1', null, "Hello Jsx");
+            class MyNote extends React.Component{
+                render() {
+
+                    return (
+                        <div>
+                        <div>
+                            <h1> {this.props.message}</h1>
+                        </div>
+                        <div>
+                            <h1> {this.props.message}</h1>
+                        </div>
+                        </div>
+                    );
+                }
+            }
+            ReactDOM.render(<MyNote message="Hello Jsx"/>,
+                document.getElementById('main')
+            );        
+
+    </script>
+</body>
+
+</html>

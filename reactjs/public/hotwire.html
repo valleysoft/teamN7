@@ -1,0 +1,162 @@
+<html>
+        
+        <head>
+            <title>Hotwire ReactJs</title>
+            <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+            <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+            <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+            <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+                crossorigin="anonymous">
+        </head>
+        
+        <body>
+            ReactJs - Hotwire Search Box
+            <div id="main"> Loading... </div>
+        
+            <script type="text/babel"> 
+            
+            class HotwireMainSearchBox extends React.Component{
+                constructor(props) {
+                    super(props);
+                    console.log(props);
+                    this.state = {
+                        searchType: 'hotels'
+                    }
+                   
+                }
+        
+                tabClick(e){
+                    console.log(e.target.name);
+                    this.setState({
+                        searchType:e.target.name
+                    });
+                }
+        
+                render(){
+                    let searchBox = <HotelsSearchBox/>;
+                    if(this.state.searchType == 'cars'){
+                        searchBox = <CarsSearchBox/>;
+                    }else if(this.state.searchType == 'flights'){
+                        searchBox = <FlightsSearchBox/>;
+                    } else if(this.state.searchType == 'bundles'){
+                        searchBox = <BundlesSearchBox/>;
+                    }
+
+                    return (
+                        <div className="well">
+                            <a href="#" name="hotels" onClick={this.tabClick.bind(this)} > Hotels </a>
+                            <a href="#" name="cars" onClick={this.tabClick.bind(this)} > Cars </a>
+                            <a href="#" name="flights" onClick={this.tabClick.bind(this)} > Flights </a>
+                            <a href="#" name="bundles" onClick={this.tabClick.bind(this)} > Bundles </a>
+                            
+                            {searchBox}
+
+                            
+                            
+                            
+                        </div>
+                    );
+                }
+            } 
+
+            /**
+                            {booleanexpression && <htmltags>}
+                            {expression? truehtml : falsehtml}
+                            <p>
+                                    {(() => {
+                                      switch (this.state.color) {
+                                        case "red":   return "#FF0000";
+                                        case "green": return "#00FF00";
+                                        case "blue":  return "#0000FF";
+                                        default:      return "#FFFFFF";
+                                      }
+                                    })()}
+                            </p>
+            **/
+
+            class HotelsSearchBox extends React.Component{
+                constructor(props) {
+                    super(props);
+                    console.log(props);
+                    this.state = {};
+                   
+                }
+                render(){
+                    
+                    return (
+                        <div >
+                            <div>Destination <input name="hotel"/></div>
+                            <div>Checkin <input type="date" name="checkin"/></div>
+                            <div>Checkout <input type="date" name="checkout"/></div>
+                            
+                        </div>
+                    );
+                }
+            } 
+
+            class CarsSearchBox extends React.Component{
+                constructor(props) {
+                    super(props);
+                    console.log(props);
+                    this.state = {};
+                   
+                }
+                render(){
+                    
+                    return (
+                        <div >
+                            Pickup Location <input name="pickup"/>
+                            
+                        </div>
+                    );
+                }
+            } 
+
+            class FlightsSearchBox extends React.Component{
+                constructor(props) {
+                    super(props);
+                    console.log(props);
+                    this.state = {};
+                   
+                }
+                render(){
+                    
+                    return (
+                        <div >
+                            <div>From City <input name="fromCity"/></div>
+                            <div>To City <input name="toCity"/></div>
+                            
+                        </div>
+                    );
+                }
+            } 
+
+            class BundlesSearchBox extends React.Component{
+                constructor(props) {
+                    super(props);
+                    console.log(props);
+                    this.state = {};
+                   
+                }
+                render(){
+                    
+                    return (
+                        <div >
+                            Bundle <input name="bundle"/>
+                            
+                        </div>
+                    );
+                }
+            } 
+        
+            
+            
+            ReactDOM.render(<HotwireMainSearchBox/> ,
+                        document.getElementById('main')
+                    );  
+                
+            </script>
+        </body>
+        
+        </html>
