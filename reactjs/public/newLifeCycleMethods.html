@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+                crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    
+    class TopComponent extends React.Component {
+                constructor(props) {
+                    super(props);
+                    console.log("constructor..");
+                    this.state = {
+                        counter:100
+                    }; 
+                    this.increment = this.increment.bind(this);                
+                }
+
+                static getDerivedStateFromProps(props, state){
+                    console.log("getDerivedStateFromProps");
+                    return state;
+                }
+
+                increment(){
+                    this.setState(
+                        {
+                            counter: this.state.counter+5
+                        }
+                    );
+                }
+                
+                render() {
+                    console.log("render..");  
+                    //this.increment();
+                    return (
+                        <div className="container well">
+                            <div>
+                            Hello New Life Cycle
+                            </div>
+                            <div>
+                                some thinf else <button type='sunmit' onClick={this.increment}> Increment </button>
+                            </div>
+                            <MiddleComponent counter={this.state.counter}/>
+                        </div>
+
+                    );
+                }
+
+                componentDidMount(){
+                    console.log("componentDidMount");
+                    this.increment();
+                }
+    }
+
+    class MiddleComponent extends React.Component{
+        constructor(props){
+            super(props);
+            this.state = {
+                middleCounter:0
+            }
+        }
+
+        static getDerivedStateFromProps(props, state){
+                    console.log("MiddleComponent-getDerivedStateFromProps");
+                    var newState ={
+                        middleCounter:props.counter
+                    }
+                    return newState;
+        }
+
+        shouldComponentUpdate(nextProps, nextState){
+            console.log("MiddleComponent-shouldComponentUpdate");
+            console.log(nextState);
+
+            if(nextState.middleCounter>120){
+                return false;
+            }
+            return true;
+        }
+
+        render(){
+            console.log("MiddleComponent-render..");
+            return(
+                <div className="container well"> Middle Component {this.state.middleCounter}</div>
+            );
+        }
+
+        componentDidMount(){
+            console.log("MiddleComponent-componentDidMount..");
+        }
+        
+    }
+
+      ReactDOM.render(
+        <TopComponent/>,
+        document.getElementById('root')
+      );
+
+    </script>
+
+</body>
+
+</html>
