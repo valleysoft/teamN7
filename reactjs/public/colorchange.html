@@ -27,7 +27,9 @@
             return state
         }
       }
-      var store = Redux.createStore(myreducer, {color:'green'})
+      var store = Redux.createStore(myreducer, {color:'green'},
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+      )
       var valueEl = document.getElementById('main')
       function render() {
         valueEl.innerHTML = '<p id="message" style="color:'+store.getState().color+'"> Hello </p>'; 
