@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redux basic example</title>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <p>
+        <button id="blue">Blue</button>
+        <button id="red">Red</button>
+        <div id="main">
+          <p id="message" style="color:blue"> Hello </p>
+        </div>
+      </p>
+    </div>
+    <script>
+      function myreducer(state, action) {
+        console.log(state);
+        if (typeof state === 'undefined') {
+          return {color:'red'};
+        }
+        switch (action.type) {
+          case 'CHANGE_COLOR':
+            return {color:action.color}
+          default:
+            return state
+        }
+      }
+      var store = Redux.createStore(myreducer, {color:'green'})
+      var valueEl = document.getElementById('main')
+      function render() {
+        valueEl.innerHTML = '<p id="message" style="color:'+store.getState().color+'"> Hello </p>'; 
+      }
+      render()
+      store.subscribe(render)
+      document.getElementById('blue')
+        .addEventListener('click', function () {
+          store.dispatch(
+            { type: 'CHANGE_COLOR',
+              color: 'blue' 
+            }
+            //actioncreator.createAction(chnagecolor, data);
+            );
+        })
+      document.getElementById('red')
+        .addEventListener('click', function () {
+          store.dispatch(
+            { type: 'CHANGE_COLOR',
+              color: 'red' 
+            }
+          )
+        })
+      
+    </script>
+  </body>
+</html>
+
+
